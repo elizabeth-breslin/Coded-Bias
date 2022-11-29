@@ -24,7 +24,7 @@ We pulled our image data from the UTKFace dataset. The set contains over 20,000 
 
 ## References
 ### Prepatory Assignments: 
-<a href="https://github.com/elizabeth-breslin/Coded-Bias/MI2.pdf">M1: Hypothesis</a> <br>
+<a href="https://github.com/elizabeth-breslin/Coded-Bias/files/MI2.pdf">M1: Hypothesis</a> <br>
 <a href="https://github.com/lls4abt/NYCTaxi/files/9620517/M2.pdf">M2: Establish Data</a>
 
 ### Acknowledgements: 
