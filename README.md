@@ -17,4 +17,6 @@ If we train a model to classify face images as either male or female with only w
 ### Data File:
 <a href="https://github.com/elizabeth-breslin/Coded-Bias/blob/master/DATA/">DATA folder</a>
 
+We pulled our image data from the UTKFace dataset. The set contains over 20,000 people's faces; we narrowed our selection to 18-106 year olds. Each photo is labeled by age, gender, race, date, and time and are then separated into folders for race and gender in the Data Github folder. Python was used to download the faces, split the data into groups separated by gender and race, and finally upload to Github.
+
 ## Figures Folder
