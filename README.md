@@ -14,5 +14,7 @@ If we train a model to classify face images as either male or female with only w
 ## SRC Folder 
 
 ## Data Folder 
+### Data File:
+<a href="https://github.com/elizabeth-breslin/Coded-Bias/blob/master/DATA/">DATA folder</a>
 
 ## Figures Folder
