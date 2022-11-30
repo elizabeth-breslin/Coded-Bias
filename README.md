@@ -34,7 +34,7 @@ This Figure contains a stacked bar graph that shows the counts of all the face i
 
 
 ## References
-### Prepatory Assignments: 
+### Preparatory Assignments: 
 <a href="https://github.com/elizabeth-breslin/Coded-Bias/blob/efc06f893a139fd6fa35b74cafa8dc1b5a5d33ab/MI1-3.pdf">M1: Hypothesis</a> <br>
 <a href="https://github.com/elizabeth-breslin/Coded-Bias/blob/423f558c77c18c39c59febf9dbcbacd094c97b0f/MI2.pdf">M2: Establish Data</a>
 
