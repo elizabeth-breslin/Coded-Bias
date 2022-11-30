@@ -12,6 +12,8 @@ This Repository contains three main folders and two additional files.
 If we train a model to classify face images as either male or female with only white faces as opposed to all racial groups, it will be at least 10% less accurate in classifaction of males and females for all racial groups in comparison to a model trained with images of all racial groups. 
 
 ## SRC Folder 
+### DataExplorationPlot.R:
+
 
 ## Data Folder
 ### Data Collection Process:
