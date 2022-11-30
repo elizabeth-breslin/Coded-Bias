@@ -26,6 +26,7 @@ Asian/male, Asian/female, Indian/male, Indian/female, Black/male, Black/female, 
 
 ## Figures Folder
 ### allRace_Regression:
+### ImageCount.png: This Figure contains a stacked bar graph that shows the counts of all the face images in our data set by race and by gender. This plot was used in our initial data exploration to understand the contents of our dataset.
 
 
 
@@ -46,8 +47,3 @@ Thanks to Professor Alonzi for his guidance, wisdom, and inspiration and thanks 
 	[Accessed: Nov, 02 2022]
 
 [4]	G. Galario, “Image Classification using Logistic Regression on the AMerican Sign Language MNIST”. Medium. June, 5 2020. [Online]. Available: https://medium.com/@gryangalario/image-classification-using-logistic-regression-on-the-american-sign-language-mnist-9c6522242ddf [Accessed: Nov, 02 2022]
-
-[5]	“How to Move a File or Directory in Python (with examples)”. Data to Fish. March 4, 2020. [Online]. Available: https://datatofish.com/move-file-python/ [Accessed: Nov, 02 2022]
-
-[6]	“How to Transform a Folder of Images into a CSV File?”. DataScience. October 2020. [Online]. Available: https://datascience.stackexchange.com/questions/49094/how-to-transform-a-folder-of-images-into-csv-file [Accessed: Nov, 02 2022]
-	
