@@ -26,7 +26,8 @@ Asian/male, Asian/female, Indian/male, Indian/female, Black/male, Black/female, 
 
 ## Figures Folder
 ### allRace_Regression:
-### ImageCount.png: This Figure contains a stacked bar graph that shows the counts of all the face images in our data set by race and by gender. This plot was used in our initial data exploration to understand the contents of our dataset.
+### 2. ImageCount.png: 
+This Figure contains a stacked bar graph that shows the counts of all the face images in our data set by race and by gender. This plot was used in our initial data exploration to understand the contents of our dataset.
 
 
 
