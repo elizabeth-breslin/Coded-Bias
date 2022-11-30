@@ -19,7 +19,7 @@ Run this program using R. It is recommended to open the R files in RStudio. Down
 
 ### Using Code:
 ##### DataExplorationPlot.R:
-With the proper modules packages installed (ggplot2) this R file can be run all at once. Run the script line by line or all at once. Running the script will produce a bar plot (see ImageCount.png in the FIGURES folder)
+With the proper packages installed (ggplot2) this R file can be run all at once. Run the script line by line or all at once. Running the script will produce a bar plot (see ImageCount.png in the FIGURES folder)
 
 
 ## Data Folder
