@@ -30,10 +30,10 @@ random.shuffle(white_male)
 white_female_data = white_female[:100]
 white_male_data = white_male[:100]
 
-train_all_female_data = all_female[100:200]
-test_all_female_data = all_female[:100]
-train_all_male_data = all_male[100:200]
-test_all_male_data = all_male[:100]
+train_all_female_data = all_female[1000:2000]
+test_all_female_data = all_female[:1000]
+train_all_male_data = all_male[1000:2000]
+test_all_male_data = all_male[:1000]
 
 #for items in train_all_female_data:
 #    original = r'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/All races - Female/'+items
@@ -50,12 +50,12 @@ test_all_male_data = all_male[:100]
 #    target = r'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/TEST/'+items
 #    shutil.move(original, target)
 
-#for items in white_male_data:
+# for items in white_male_data:
 #    original = r'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/White - Male/'+items
 #    target = r'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/TRAIN/'+items
 #    shutil.move(original, target)
 
-#for items in white_female_data:
+# for items in white_female_data:
 #    original = r'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/White - Female/'+items
 #    target = r'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/TRAIN/'+items
 #    shutil.move(original, target)
@@ -64,31 +64,9 @@ train_white_female = 'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project
 train_white_male = 'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/White - Male/TRAIN'
 train_all_female = 'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/All races - Female/TRAIN'
 train_all_male = 'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/All races - Male/TRAIN'
-test_all_female = 'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/All races - Female/TEST/TEST'
-test_all_male = 'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/All races - Male/TEST/TEST'
+test_all_female = 'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/All races - Female/TEST'
+test_all_male = 'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/All races - Male/TEST'
 image_size = 128
-
-
-for image in tqdm(os.listdir(train_white_female)):
-    path = os.path.join(train_white_female, image)
-    img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
-    img = cv2.resize(img, (image_size, image_size)).flatten()
-    np_img = np.asarray(img)
-
-for image2 in tqdm(os.listdir(train_white_male)):
-    path = os.path.join(train_white_male, image2)
-    img2 = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
-    img2 = cv2.resize(img2, (image_size, image_size)).flatten()
-    np_img2 = np.asarray(img2)
-
-#plt.figure(figsize=(10, 10))
-#plt.subplot(1, 2, 1)
-#plt.imshow(np_img.reshape(image_size, image_size))
-#plt.axis('off')
-#plt.subplot(1, 2, 2)
-#plt.imshow(np_img2.reshape(image_size, image_size))
-#plt.axis('off')
-#plt.title("Messy and Clean Rooms in GrayScale")
 
 
 def train_data_white():
@@ -130,7 +108,6 @@ def test_data():
 train_data_white = train_data_white()
 test_data = test_data()
 
-
 x_data = np.concatenate((train_data_white,test_data),axis=0)
 x_data = (x_data-np.min(x_data))/(np.max(x_data)-np.min(x_data))
 
@@ -138,8 +115,8 @@ x_data = (x_data-np.min(x_data))/(np.max(x_data)-np.min(x_data))
 z1 = np.zeros(100)
 o1 = np.ones(100)
 Y_train = np.concatenate((o1, z1), axis=0)
-z = np.zeros(10)
-o = np.ones(10)
+z = np.zeros(100)
+o = np.ones(100)
 Y_test = np.concatenate((o, z), axis=0)
 
 y_data=np.concatenate((Y_train,Y_test),axis=0).reshape(x_data.shape[0],1)
@@ -156,7 +133,7 @@ x_test_flatten = x_test .reshape(number_of_test,x_test.shape[1]*x_test.shape[2])
 
 print("X train flatten",x_train_flatten.shape)
 print("X test flatten",x_test_flatten.shape)
-
+#
 x_train = x_train_flatten.T
 x_test = x_test_flatten.T
 y_test = y_test.T
@@ -165,21 +142,22 @@ print("x train: ",x_train.shape)
 print("x test: ",x_test.shape)
 print("y train: ",y_train.shape)
 print("y test: ",y_test.shape)
+#
 
-
+#LOGISTIC REGRESSION
 def initialize_weights_and_bias(dimension):
-    w = np.full((dimension,1),0.01)
-    b = 0.0
-    return w, b
+     w = np.full((dimension,1),0.01)
+     b = 0.0
+     return w, b
 
-
+#
 def sigmoid(z):
-    y_head = 1/(1+np.exp(-z))
-    return y_head
+     y_head = 1/(1+np.exp(-z))
+     return y_head
 
 
 def forward_backward_propagation(w,b,x_train,y_train):
-    # forward propagation
+    #forward propagation
     z = np.dot(w.T,x_train) + b
     y_head = sigmoid(z)
     loss = -y_train*np.log(y_head)-(1-y_train)*np.log(1-y_head)
@@ -190,7 +168,7 @@ def forward_backward_propagation(w,b,x_train,y_train):
     gradients = {"derivative_weight": derivative_weight,"derivative_bias": derivative_bias}
     return cost,gradients
 
-
+#
 def update(w, b, x_train, y_train, learning_rate, number_of_iterarion):
     global gradients
     cost_list = []
@@ -216,8 +194,8 @@ def update(w, b, x_train, y_train, learning_rate, number_of_iterarion):
     plt.ylabel("Cost")
     plt.show()
     return parameters, gradients, cost_list
-
-
+#
+# #
 def predict(w, b, x_test):
     z = sigmoid(np.dot(w.T, x_test) + b)
     Y_prediction = np.zeros((1, x_test.shape[1]))
@@ -229,8 +207,8 @@ def predict(w, b, x_test):
             Y_prediction[0, i] = 1
 
     return Y_prediction
-
-
+#
+#
 def logistic_regression(x_train, y_train, x_test, y_test, learning_rate, num_iterations):
     dimension = x_train.shape[0]
     w, b = initialize_weights_and_bias(dimension)
@@ -244,22 +222,21 @@ def logistic_regression(x_train, y_train, x_test, y_test, learning_rate, num_ite
     print("Train Accuracy: {} %".format(round(100 - np.mean(np.abs(y_prediction_train - y_train)) * 100, 2)))
 
 logistic_regression(x_train, y_train, x_test, y_test,learning_rate = 0.01, num_iterations = 1500)
-
-from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import GridSearchCV
-grid={"C":np.logspace(-3,3,7),"penalty":["l1","l2"]},
-logistic_regression=LogisticRegression(random_state=42)
-log_reg_cv=GridSearchCV(logistic_regression,grid,cv=10)
-log_reg_cv.fit(x_train.T,y_train.T)
-
-print("best hyperparameters: ", log_reg_cv.best_params_)
-print("accuracy: ", log_reg_cv.best_score_)
-
-log_reg= LogisticRegression(C=1,penalty="l1")
-log_reg.fit(x_train.T,y_train.T)
-print("test accuracy: {} ".format(log_reg.fit(x_test.T, y_test.T).score(x_test.T, y_test.T)))
-print("train accuracy: {} ".format(log_reg.fit(x_train.T, y_train.T).score(x_train.T, y_train.T)))
-
-
-
-
+#
+# # from sklearn.linear_model import LogisticRegression
+# # from sklearn.model_selection import GridSearchCV
+# # grid={"C":np.logspace(-3,3,7),"penalty":["l1","l2"]},
+# # logistic_regression=LogisticRegression(random_state=42)
+# # log_reg_cv=GridSearchCV(logistic_regression,grid,cv=10)
+# # log_reg_cv.fit(x_train.T,y_train.T)
+# #
+# # print("best hyperparameters: ", log_reg_cv.best_params_)
+# # print("accuracy: ", log_reg_cv.best_score_)
+# #
+# # log_reg= LogisticRegression(C=1,penalty="l1")
+# # log_reg.fit(x_train.T,y_train.T)
+# # print("test accuracy: {} ".format(log_reg.fit(x_test.T, y_test.T).score(x_test.T, y_test.T)))
+# # print("train accuracy: {} ".format(log_reg.fit(x_train.T, y_train.T).score(x_train.T, y_train.T)))
+# #
+#
+#
