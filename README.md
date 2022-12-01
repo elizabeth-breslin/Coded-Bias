@@ -18,17 +18,17 @@ If we train a model to classify face images as either male or female with only w
 Run this program using R. It is recommended to open the R files in RStudio. Download the R files to your local computer and then open in RStudio to execute.
 
 ##### all_race_train.py
-This python file can be downloaded and imported into any Python compatible IDE. PyCharm was used for this project. It is recommended to install these modules using pip with the following commands:
-<em>pip install shutil</em>
-<em>pip install tqdm</em>
-<em>pip install PIL</em>
+This python file can be downloaded and imported into any Python compatible IDE. PyCharm was used for this project. It is recommended to install these modules using pip with the following commands: <br>
+<em>pip install shutil</em> <br>
+<em>pip install tqdm</em> <br>
+<em>pip install PIL</em> <br>
 <em>pip install sklearn.model_selection</em>
 
 ##### white_train.py
-This python file can be downloaded and imported into any Python compatible IDE. PyCharm was used for this project. It is recommended to install these modules using pip with the following commands:
-<em>pip install shutil</em>
-<em>pip install tqdm</em>
-<em>pip install PIL</em>
+This python file can be downloaded and imported into any Python compatible IDE. PyCharm was used for this project. It is recommended to install these modules using pip with the following commands: <br>
+<em>pip install shutil</em> <br>
+<em>pip install tqdm</em> <br>
+<em>pip install PIL</em> <br>
 <em>pip install sklearn.model_selection</em>
 
 
