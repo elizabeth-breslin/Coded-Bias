@@ -46,10 +46,13 @@ The Data folder contains one folder for each gender/race combination we are expl
 Asian/male, Asian/female, Indian/male, Indian/female, Black/male, Black/female, White/male, White/female, Other/male, Other/female
 
 ## Figures Folder
-### allRace_Regression:
-### 2. ImageCount.png: 
+### 1. ImageCount.png: 
 This Figure contains a stacked bar graph that shows the counts of all the face images in our data set by race and by gender. This plot was used in our initial data exploration to understand the contents of our dataset.
 
+### 2. all_regression.png
+This figure is the regression plot that is produced by the logistic regression function 
+
+### 3. white_regression.png
 
 
 ## References
