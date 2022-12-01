@@ -13,25 +13,27 @@ from sklearn.model_selection import train_test_split
 import random
 import warnings
 warnings.filterwarnings('ignore')
-data_list = os.listdir("C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace")
+print(os.listdir("C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA"))
+
+#data_list = os.listdir("C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace")
 
 
 ### This Code is to split the data set with all races randomly into a train data set and a test data set ###
 all_female = os.listdir('C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/All races - Female')
 all_male = os.listdir('C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/All races - Male')
-random.shuffle(all_female)
-random.shuffle(all_male)
 white_female = os.listdir('C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/White - Female')
 white_male = os.listdir('C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/White - Male')
+random.shuffle(all_female)
+random.shuffle(all_male)
 random.shuffle(white_female)
 random.shuffle(white_male)
-white_female_data = white_female[:1000]
-white_male_data = white_male[:1000]
+white_female_data = white_female[:100]
+white_male_data = white_male[:100]
 
-train_all_female_data = all_female[2000:4000]
-test_all_female_data = all_female[:2000]
-train_all_male_data = all_male[2000:4000]
-test_all_male_data = all_male[:2000]
+train_all_female_data = all_female[100:200]
+test_all_female_data = all_female[:100]
+train_all_male_data = all_male[100:200]
+test_all_male_data = all_male[:100]
 
 #for items in train_all_female_data:
 #    original = r'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/All races - Female/'+items
@@ -41,12 +43,7 @@ test_all_male_data = all_male[:2000]
 #for items in test_all_female_data:
 #    original = r'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/All races - Female/'+items
 #    target = r'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/TEST/'+items
-#    shutil.move(original, target)
-
-#for items in train_all_male_data:
-#    original = r'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/All races - Male/'+items
-#    target = r'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/TRAIN/'+items
-#    shutil.move(original, target)
+#   shutil.move(original, target)
 
 #for items in test_all_male_data:
 #    original = r'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/All races - Male/'+items
@@ -55,8 +52,8 @@ test_all_male_data = all_male[:2000]
 
 #for items in white_male_data:
 #    original = r'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/White - Male/'+items
- #   target = r'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/TRAIN/'+items
- #   shutil.move(original, target)
+#    target = r'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/TRAIN/'+items
+#    shutil.move(original, target)
 
 #for items in white_female_data:
 #    original = r'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/White - Female/'+items
@@ -67,9 +64,31 @@ train_white_female = 'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project
 train_white_male = 'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/White - Male/TRAIN'
 train_all_female = 'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/All races - Female/TRAIN'
 train_all_male = 'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/All races - Male/TRAIN'
-test_all_female = 'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/All races - Female/TEST'
-test_all_male = 'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/All races - Male/TEST'
+test_all_female = 'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/All races - Female/TEST/TEST'
+test_all_male = 'C:/Users/Student/Downloads/UVA/Fourth Year/Project/Project 3/PHOTOS/UTKFace/DATA/All races - Male/TEST/TEST'
 image_size = 128
+
+
+for image in tqdm(os.listdir(train_white_female)):
+    path = os.path.join(train_white_female, image)
+    img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+    img = cv2.resize(img, (image_size, image_size)).flatten()
+    np_img = np.asarray(img)
+
+for image2 in tqdm(os.listdir(train_white_male)):
+    path = os.path.join(train_white_male, image2)
+    img2 = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+    img2 = cv2.resize(img2, (image_size, image_size)).flatten()
+    np_img2 = np.asarray(img2)
+
+#plt.figure(figsize=(10, 10))
+#plt.subplot(1, 2, 1)
+#plt.imshow(np_img.reshape(image_size, image_size))
+#plt.axis('off')
+#plt.subplot(1, 2, 2)
+#plt.imshow(np_img2.reshape(image_size, image_size))
+#plt.axis('off')
+#plt.title("Messy and Clean Rooms in GrayScale")
 
 
 def train_data_white():
@@ -90,7 +109,7 @@ def train_data_white():
     return train_data_white
 
 
-def test_data1():
+def test_data():
     test_data_all_female = []
     test_data_all_male = []
     for image1 in tqdm(os.listdir(test_all_female)):
@@ -109,18 +128,18 @@ def test_data1():
 
 
 train_data_white = train_data_white()
-test_data = test_data1()
+test_data = test_data()
 
 
-x_data = np.concatenate((train_data_all,test_data),axis=0)
+x_data = np.concatenate((train_data_white,test_data),axis=0)
 x_data = (x_data-np.min(x_data))/(np.max(x_data)-np.min(x_data))
 
 
-z1 = np.zeros(1000)
-o1 = np.ones(1000)
+z1 = np.zeros(100)
+o1 = np.ones(100)
 Y_train = np.concatenate((o1, z1), axis=0)
-z = np.zeros(2000)
-o = np.ones(2000)
+z = np.zeros(10)
+o = np.ones(10)
 Y_test = np.concatenate((o, z), axis=0)
 
 y_data=np.concatenate((Y_train,Y_test),axis=0).reshape(x_data.shape[0],1)
@@ -134,6 +153,7 @@ number_of_test = x_test.shape[0]
 
 x_train_flatten = x_train.reshape(number_of_train,x_train.shape[1]*x_train.shape[2])
 x_test_flatten = x_test .reshape(number_of_test,x_test.shape[1]*x_test.shape[2])
+
 print("X train flatten",x_train_flatten.shape)
 print("X test flatten",x_test_flatten.shape)
 
@@ -239,5 +259,7 @@ log_reg= LogisticRegression(C=1,penalty="l1")
 log_reg.fit(x_train.T,y_train.T)
 print("test accuracy: {} ".format(log_reg.fit(x_test.T, y_test.T).score(x_test.T, y_test.T)))
 print("train accuracy: {} ".format(log_reg.fit(x_train.T, y_train.T).score(x_train.T, y_train.T)))
+
+
 
 
