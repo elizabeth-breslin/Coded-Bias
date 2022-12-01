@@ -18,10 +18,18 @@ If we train a model to classify face images as either male or female with only w
 Run this program using R. It is recommended to open the R files in RStudio. Download the R files to your local computer and then open in RStudio to execute.
 
 ##### all_race_train.py
-Run this program using python. It is recommended to open the py files in pycharm. Download the python files to your local computer and then open in pycharm to execute.
+This python file can be downloaded and imported into any Python compatible IDE. PyCharm was used for this project. It is recommended to install these modules using pip with the following commands:
+<em>pip install shutil</em>
+<em>pip install tqdm</em>
+<em>pip install PIL</em>
+<em>pip install sklearn.model_selection</em>
 
 ##### white_train.py
-Run this program using python. It is recommended to open the py files in pycharm. Download the python files to your local computer and then open in pycharm to execute.
+This python file can be downloaded and imported into any Python compatible IDE. PyCharm was used for this project. It is recommended to install these modules using pip with the following commands:
+<em>pip install shutil</em>
+<em>pip install tqdm</em>
+<em>pip install PIL</em>
+<em>pip install sklearn.model_selection</em>
 
 
 ### Using Code:
@@ -29,10 +37,10 @@ Run this program using python. It is recommended to open the py files in pycharm
 With the proper packages installed (ggplot2) this R file can be run all at once. Run the script line by line or all at once. Running the script will produce a bar plot (see ImageCount.png in the FIGURES folder)
 
 ##### all_race_train.py
-With the proper packages installed (sklearn.model_selection, shutil, tqdm, PIL, random) this pycharm file can be run all at once. Run the script line by line or all at once. Running the script will produce a logistic regression plot and test accuracy percentage. 
+With the proper packages installed this pycharm file can be run all at once. Run the script line by line or all at once. The photo data to be analyzed should be downloaded onto the computer local drive to be imported. Running the script will produce a logistic regression plot and a test accuracy percentage. 
 
 ##### white_train.py
-With the proper packages installed (sklearn.model_selection, shutil, tqdm, PIL, random) this pycharm file can be run all at once. Run the script line by line or all at once. Running the script will produce a logistic regression plot and test accuracy percentage. 
+With the proper packages installed this pycharm file can be run all at once. Run the script line by line or all at once. The photo data to be analyzed should be downloaded onto the computer local drive to be imported. Running the script will produce a logistic regression plot and a test accuracy percentage. 
 
 ## Data Folder
 ### Data Collection Process:
@@ -50,10 +58,10 @@ Asian/male, Asian/female, Indian/male, Indian/female, Black/male, Black/female, 
 This Figure contains a stacked bar graph that shows the counts of all the face images in our data set by race and by gender. This plot was used in our initial data exploration to understand the contents of our dataset.
 
 ### 2. all_regression.png
-This figure is the regression plot that is produced by the logistic regression function 
+This figure is the regression plot that is produced by the logistic regression function. 
 
 ### 3. white_regression.png
-
+This figure is the regression plot that is produced by the logistic regression function. 
 
 ## References
 ### Preparatory Assignments: 
